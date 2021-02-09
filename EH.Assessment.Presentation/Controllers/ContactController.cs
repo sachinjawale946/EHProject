@@ -74,8 +74,6 @@ namespace EH.Assessment.Presentation.Controllers
         public IActionResult Add(ContactModel contactModel)
         {
             // add contact 
-            contactModel.ContactTypeId = 1; 
-            contactModel.Status = true;
             _contactRepository.Add(contactModel);
             TempData["SuccessMessage"] = "Contact created successfully";
             return RedirectToAction("All");
@@ -107,7 +105,7 @@ namespace EH.Assessment.Presentation.Controllers
 
         public JsonResult IsExists(string fieldType, string fieldValue, Guid? contactId)
         {
-            var contact = _contactRepository.GetContactByFieldAndValue(fieldType, fieldValue);
+            var contact = _contactRepository.GetContactByFieldAndValue(fieldType, fieldValue, contactId);
             if (contact != null && contact.ContactId != Guid.Empty) return Json("true");
             return Json("false");
         }

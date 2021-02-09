@@ -9,10 +9,11 @@
 {
 
     @Html.HiddenFor(m => m.ContactId, new { id = "hiddenContactId" })
-    @Html.HiddenFor(m => m.ContactTypeId)
+    @Html.HiddenFor(m => m.Status)
+    @Html.HiddenFor(m => m.ContactTypeId, new { id ="hiddentContactTypeId" })
 
     <div class="container" style="width:80%">
-        <h3>Create Contact</h3>
+        <h3>Create Contact 111111111111111111</h3>
         <hr />
         <div class="text-center">
             <label id="lblSuccessMessage" style="width:90%;background-color:red;color:white;"></label> <br />
@@ -33,7 +34,7 @@
             <br />
         </div>
         <div class="row">
-            <div class="col-md-2">Email </div>
+            <div class="col-md-2">Email ssasa </div>
             <div class="col-md-4">
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control", maxlength = "30", id = "txtEmail" })
                 @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
@@ -74,9 +75,6 @@
                         {
                             $("#lblSuccessMessage").show(500);
                             $("#lblSuccessMessage").text("Contact with same Email already exists, please enter diffrent Email.");
-                            setTimeout(function () {
-                                $("#lblSuccessMessage").hide(1000);
-                            }, 3500);
                         }
                         else
                         {
