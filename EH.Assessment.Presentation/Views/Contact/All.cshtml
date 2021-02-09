@@ -28,7 +28,7 @@
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    <th>Status</th>
+                    @*<th>Status</th>*@
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -62,12 +62,12 @@
                 { "data": "lastName", "name": "LastName", "autoWidth": true },
                 { "data": "email", "name": "Email", "autoWidth": true },
                 { "data": "phone", "name": "Phone", "autoWidth": true, },
-                {
-                    "render": function (data, type, conact, meta) {
-                        if (conact.status == true) { return "Active"; }
-                        else { return "Inactive" }
-                    }
-                },
+                //{
+                //    "render": function (data, type, conact, meta) {
+                //        if (conact.status == true) { return "Active"; }
+                //        else { return "Inactive" }
+                //    }
+                //},
                 {
                     "render": function (data, type, conact, meta) { return '<a class="btn btn-info" href="/Contact/Edit?ContactId=' + conact.contactId + '">Edit</a>'; }
                 },
