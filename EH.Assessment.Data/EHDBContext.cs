@@ -62,16 +62,13 @@ namespace EH.Assessment.Data
                             LastName = "Mishra",
                             Email = "Akhilesh_Mishra@Gmail.com",
                             Phone = "8422023641",
-                            Status = false,
+                            Status = true,
                             ContactId = Guid.NewGuid(),
                             ContactTypeId = 1,
                             CreatedDate = DateTime.Now,
                             LastUpdatedDate = DateTime.Now
                         }
                         );
-
-
-
 
             // Contact Table Relationship
             modelBuilder.Entity<ContactModel>()
