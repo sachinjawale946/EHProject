@@ -1,0 +1,14 @@
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\bin\Debug\netcoreapp2.2\EH.Assessment.Data.deps.json
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\bin\Debug\netcoreapp2.2\EH.Assessment.Data.dll
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\bin\Debug\netcoreapp2.2\EH.Assessment.Data.pdb
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\bin\Debug\netcoreapp2.2\EH.Assessment.Models.dll
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\bin\Debug\netcoreapp2.2\Microsoft.EntityFrameworkCore.dll
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\bin\Debug\netcoreapp2.2\EH.Assessment.Models.pdb
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\bin\Debug\netcoreapp2.2\Microsoft.EntityFrameworkCore.xml
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\obj\Debug\netcoreapp2.2\EH.Assessment.Data.csprojAssemblyReference.cache
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\obj\Debug\netcoreapp2.2\EH.Assessment.Data.csproj.CoreCompileInputs.cache
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\obj\Debug\netcoreapp2.2\EH.Assessment.Data.AssemblyInfoInputs.cache
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\obj\Debug\netcoreapp2.2\EH.Assessment.Data.AssemblyInfo.cs
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\obj\Debug\netcoreapp2.2\EH.Assessment.Data.csproj.CopyComplete
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\obj\Debug\netcoreapp2.2\EH.Assessment.Data.dll
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Data\obj\Debug\netcoreapp2.2\EH.Assessment.Data.pdb

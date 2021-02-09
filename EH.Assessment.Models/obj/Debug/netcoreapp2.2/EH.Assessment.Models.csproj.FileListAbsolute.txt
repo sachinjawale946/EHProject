@@ -1,0 +1,9 @@
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\bin\Debug\netcoreapp2.2\EH.Assessment.Models.deps.json
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\bin\Debug\netcoreapp2.2\EH.Assessment.Models.dll
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\bin\Debug\netcoreapp2.2\EH.Assessment.Models.pdb
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\obj\Debug\netcoreapp2.2\EH.Assessment.Models.csprojAssemblyReference.cache
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\obj\Debug\netcoreapp2.2\EH.Assessment.Models.csproj.CoreCompileInputs.cache
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\obj\Debug\netcoreapp2.2\EH.Assessment.Models.AssemblyInfoInputs.cache
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\obj\Debug\netcoreapp2.2\EH.Assessment.Models.AssemblyInfo.cs
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\obj\Debug\netcoreapp2.2\EH.Assessment.Models.dll
+F:\Sachin_Work\EH\EH.Assessment\EH.Assessment.Models\obj\Debug\netcoreapp2.2\EH.Assessment.Models.pdb

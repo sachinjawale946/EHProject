@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewData["Title"] = "All";
+}
+
+
+<link href="~/lib/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/datatables/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+<script src="~/lib/datatables/js/dataTables.bootstrap4.min.js"></script>
+
+<div class="container">
+    <br />
+    <div style="width:90%; margin:0 auto;">
+        <div class="text-center" ><label id="lblSuccessMessage" style="width:95%;background-color:green;color:white;">@ViewBag.SuccessMessage</label> <br /> </div>
+        @if (!string.IsNullOrEmpty(ViewBag.SuccessMessage))
+        {
+            <script>
+                setTimeout(function () {
+                    $("#lblSuccessMessage").hide(1000);
+                }, 2500);
+            </script>
+        }
+        <table id="tblContacts" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Status</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $.noConflict();
+        $("#tblContacts").DataTable({
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "ajax": {
+                "url": "/Contact/ReadContacts",
+                "datatype": "application/json"
+            },
+            "columnDefs": [{
+                // "targets": [0],
+                "visible": false,
+                "searchable": false
+            },
+            { "orderable": false, "targets": [4, 5] }
+            ],
+            "columns": [
+                { "data": "firstName", "name": "FirstName", "autoWidth": true },
+                { "data": "lastName", "name": "LastName", "autoWidth": true },
+                { "data": "email", "name": "Email", "autoWidth": true },
+                { "data": "phone", "name": "Phone", "autoWidth": true, },
+                {
+                    "render": function (data, type, conact, meta) {
+                        if (conact.status == true) { return "Active"; }
+                        else { return "Inactive" }
+                    }
+                },
+                {
+                    "render": function (data, type, conact, meta) { return '<a class="btn btn-info" href="/Contact/Edit?ContactId=' + conact.contactId + '">Edit</a>'; }
+                },
+                {
+                    data: null,
+                    render: function (data, type, conact) {
+                        return "<a href='#' class='btn btn-danger' onclick=DeleteContact('" + conact.contactId + "'); >Delete</a>";
+                    }
+                }
+            ]
+        });
+
+    });
+
+         function DeleteContact(contactId) {
+            if (confirm("Are you sure you want to delete contact?")) {
+                Delete(contactId);
+            } else {
+                return false;
+            }
+        }
+
+        function Delete(id) {
+            $.ajax({
+                url: "/Contact/Delete",
+                contentType: "application/json;",  
+                data: { contactId: id},
+                success: function (msg) {
+                    $("#lblSuccessMessage").show(500);
+                    $("#lblSuccessMessage").text(msg);
+                    setTimeout(function () {
+                        $("#lblSuccessMessage").hide(1000);
+                    }, 2500);
+                    oTable = $('#tblContacts').DataTable();
+                    oTable.draw();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert("Error occured while processing your request");
+                }
+            });
+
+        }
+</script>
+
+
+

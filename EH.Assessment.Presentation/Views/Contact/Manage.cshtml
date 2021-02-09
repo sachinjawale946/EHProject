@@ -1,0 +1,94 @@
+﻿@model ContactModel
+
+@{
+    ViewData["Title"] = "Add";
+}
+
+
+@using (Html.BeginForm(Model.Mode, "Contact", FormMethod.Post, new { id = "ContactForm" }))
+{
+
+    @Html.HiddenFor(m => m.ContactId, new { id = "hiddenContactId" })
+    @Html.HiddenFor(m => m.ContactTypeId)
+
+    <div class="container" style="width:80%">
+        <h3>Create Contact</h3>
+        <hr />
+        <div class="text-center">
+            <label id="lblSuccessMessage" style="width:90%;background-color:red;color:white;"></label> <br />
+        </div>
+        <div class="row">
+            <div class="col-md-2">First Name</div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.FirstName, null, new { @class = "text-danger", maxlength = "20" })
+            </div>
+            <div class="col-md-2">Last Name</div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", maxlength = "20" })
+                @Html.ValidationMessageFor(m => m.LastName, null, new { @class = "text-danger" })
+            </div>
+            <br />
+            <br />
+            <br />
+        </div>
+        <div class="row">
+            <div class="col-md-2">Email </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", maxlength = "30", id = "txtEmail" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+            </div>
+            <div class="col-md-2">Phone</div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", maxlength = "10" })
+                @Html.ValidationMessageFor(m => m.Phone, null, new { @class = "text-danger" })
+            </div>
+            <br />
+            <br />
+            <br />
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-4 text-right">
+                <input type="submit" value="Submit" class="btn-primary" style="height:40px;width:100px;" />
+                &nbsp;&nbsp;
+                @Html.ActionLink("Cancel", "All", "Contact", null, new { style = "height:40px;width:100px;" })
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    $(function () {
+        $("#ContactForm").submit(function (e) {
+            e.preventDefault();
+            var isValid = $('#ContactForm').valid();
+            if (isValid) {
+                $.ajax({
+                    url: "/Contact/IsExists",
+                    contentType: "application/json;",
+                    data: { fieldType: "Email", fieldValue: $("#txtEmail").val(), contactId: $("#hiddenContactId").val() },
+                    success: function (msg) {
+                        if (msg == "true")
+                        {
+                            $("#lblSuccessMessage").show(500);
+                            $("#lblSuccessMessage").text("Contact with same Email already exists, please enter diffrent Email.");
+                            setTimeout(function () {
+                                $("#lblSuccessMessage").hide(1000);
+                            }, 3500);
+                        }
+                        else
+                        {
+                            // continue form submit
+                            e.currentTarget.submit();
+                        }
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("Error occured while processing your request");
+                    }
+                });
+            }
+        });
+    });
+</script>
